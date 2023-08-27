@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-
+  const [completedTaskName] = useState('');
   const handleAddTask = () => {
     if (newTask.trim() === '') {
       return;
@@ -14,11 +14,15 @@ function App() {
   };
 
   const handleCompleteTask = (taskId) => {
+    const completedTask = tasks.find(task => task.id === taskId);
     const updatedTasks = tasks.map(task =>
       task.id === taskId ? { ...task, completed: true } : task
     );
     setTasks(updatedTasks);
+    alert(`Tarea completada: ${completedTask.name}`);
   };
+  
+  
 
   const handleDeleteTask = (taskId) => {
     const updatedTasks = tasks.filter(task => task.id !== taskId);
@@ -48,8 +52,12 @@ function App() {
           </li>
         ))}
       </ul>
+      {completedTaskName && (
+        <p className="completed-message">Tarea completada: {completedTaskName}</p>
+      )}
     </div>
   );
+  
 }
 
 export default App;

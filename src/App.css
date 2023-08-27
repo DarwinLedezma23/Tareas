@@ -1,3 +1,19 @@
-.completed {
-  text-decoration: line-through;
+
+body, h1, h2, h3, ul, p {
+  margin: 100;
+  padding: 100;
 }
+
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 4rem;
+  background-color: #00eaff;
+  color: #333;
+}
+
+.header {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
